@@ -1,0 +1,22 @@
+body{
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.list-group-item{
+    background-color: rgb(127, 179, 180);
+    margin: 5px;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.weather-forecast{
+    display: flex;
+    font-size: larger;
+}
+
+.card{
+    background-color: cadetblue;
+    font-size: small;
+}
