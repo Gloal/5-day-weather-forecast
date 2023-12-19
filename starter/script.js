@@ -1,14 +1,17 @@
 $(document).ready(function () {
   const APIKey = "9b9930a7106df81badb54c5976f6f846";
   const validLetters = /^[A-Za-z]+$/;
-  const pastSearches = [] || JSON.parse(localStorage.getItem("pastSearches"));
+  const pastSearches = JSON.parse(localStorage.getItem('pastSearches')) || [];
   const pastSearchesEl = $(".js-past-searches")
 
   let cityName;
   let cityLat;
   let cityLon;
 
-
+  pastSearches.forEach((item)=>{ 
+    pastSearchesEl.append(`<li class="list-group-item">${item}</li>`);
+    })
+  
   $("#search-button-input").on("click", function (event) {
     event.preventDefault();
 
@@ -18,6 +21,8 @@ $(document).ready(function () {
     //input validation
     if (userInput.match(validLetters)) {
       cityName = userInput;
+      if (pastSearches.indexOf(cityName) == -1){
+
       pastSearches.push(cityName);
       localStorage.setItem('pastSearches', JSON.stringify(pastSearches));
       //display history searches
@@ -25,6 +30,7 @@ $(document).ready(function () {
       pastSearches.forEach((item)=>{ 
       pastSearchesEl.append(`<li class="list-group-item">${item}</li>`);
       })
+      }
     } 
 
 
