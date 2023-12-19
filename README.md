@@ -7,6 +7,8 @@ The task was to build a weather dashboard that would allow the user to enter a c
 
 ## Mock-Up
 
+![Click here to go to the website!}(https://github.com/Gloal/5-day-weather-forecast/deployments/github-pages)
+
 The following image shows the web application's appearance and functionality:
 
 ![The weather dashboard includes today's weather conditions and the next five days forecase](./assets/weather%20dashbord%20screenshot.png)
