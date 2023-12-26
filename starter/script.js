@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     if (cityName) {
 
-      const queryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIKey}`;
+      const queryURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIKey}`;
       let secondQueryURL;
 
 
