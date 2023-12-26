@@ -65,7 +65,7 @@ $(document).ready(function () {
           cityName = data.city.name;
           let description = data.list[0].weather[0].description;
           let icon = data.list[0].weather[0].icon;
-          let temp = data.list[0].main.temp;
+          let temp = (data.list[0].main.temp - 273.25).toFixed(2);
           let humidity = data.list[0].main.humidity;
           let wind = data.list[0].wind.speed;
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
         <h2 class="city">${cityName}</h2>
         <p class="date">${dayjs().format("dddd DD MMM YY")}</p>
         <p class="description">${description}</p>
-        <p class="temp">Temperature: ${temp} </p>
+        <p class="temp">Temperature (C): ${temp} </p>
         <p class="wind">Wind Speed: ${wind}</p>
         <p class="humidity">Humidity:  ${humidity} </p>
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
               let fcDescription = data.list[index].weather[0].description;
               let fcIcon = data.list[index].weather[0].icon;
-              let fcTemp = data.list[index].main.temp;
+              let fcTemp = (data.list[index].main.temp - 273.25).toFixed(2);
               let fcHumidity = data.list[index].main.humidity;
 
               const fcHtmlContent = `
@@ -103,7 +103,7 @@ $(document).ready(function () {
             <img src="https://openweathermap.org/img/wn/${fcIcon}@2x.png"></img>
             <p class="date">${displayDate}</p>
             <p class="description">${fcDescription}</p>
-            <p class="temp">Temp: ${fcTemp} </p>
+            <p class="temp">Temp(C): ${fcTemp} </p>
             <p class="humidity">Humidity:  ${fcHumidity} </p>
           </div>`;
 
@@ -113,9 +113,7 @@ $(document).ready(function () {
             } else {
               console.log(weatherDate);
               console.log("Not the right date!");
-              console.log(
-                dayjs().add(addDays, "days").format("YYYY-MM-DD") + " 12:00:00");
-            }
+              }
           }
           $(".js-weather-forecast").empty();
           $(".js-weather-forecast").append(forecastHTML);
